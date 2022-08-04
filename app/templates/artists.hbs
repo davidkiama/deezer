@@ -2,13 +2,23 @@
 
 <GeneralContainer>
 
-  <h2>This is artist page</h2>
+  <div class='artists'>
 
-  {{#each @model as |artist|}}
+    {{#each @model as |artist|}}
 
-    <p> {{artist.id}} </p>
+      <div class='artist'>
+        <img src={{artist.picture}} alt='Artist Image' class='artist__image' />
+        <h3 class='artist__name'>{{artist.name}}</h3>
+        <p class='artist__footer'>
+          <span>{{artist.nb_album}} Albums</span>
+          &nbsp; &#x2022; &nbsp;
+          <span> {{artist.nb_fan}} Fans</span>
+        </p>
+      </div>
 
-  {{/each}}
+    {{/each}}
+
+  </div>
 
 </GeneralContainer>
 
