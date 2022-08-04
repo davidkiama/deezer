@@ -1,0 +1,41 @@
+.nav {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid $color-grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__notification {
+    fill: $color-grey;
+    height: 2rem;
+    width: 2rem;
+    margin: 0 2rem;
+  }
+
+  &__avatar {
+    height: 4rem;
+    width: 4rem;
+  }
+}
+
+.search {
+  display: flex;
+  color: $color-grey;
+  flex: 1;
+
+  &__icon {
+    fill: currentColor;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  &__input {
+    width: 80%;
+    margin-left: 1rem;
+    color: $color-white;
+    font-size: 2rem;
+    background-color: $color-black;
+    border: none;
+    outline: none;
+  }
+}

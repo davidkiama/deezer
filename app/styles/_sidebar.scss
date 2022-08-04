@@ -1,0 +1,65 @@
+.sidebar {
+  padding: 2rem;
+  width: 30rem;
+  background: $color-navy;
+
+  &__links {
+    margin-top: 3rem;
+  }
+
+  &__link {
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin: 1rem;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.2s;
+
+    &--icon {
+      fill: currentColor;
+      height: 3rem;
+      width: 3rem;
+    }
+
+    &--text {
+      fill: currentColor;
+      font-size: 2rem;
+      margin-left: 1rem;
+    }
+
+    &:hover {
+      color: $color-pink;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    margin-left: 5rem;
+    & span {
+      font-size: 1.8rem;
+      margin: 0.5rem;
+      color: $color-grey;
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  &__img {
+    height: 4rem;
+    margin-right: 1rem;
+  }
+
+  &__name {
+    margin-left: 1rem;
+    font-weight: 900;
+    font-size: 3.2rem;
+  }
+}
