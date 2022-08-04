@@ -1,0 +1,15 @@
+{{page-title 'Artists'}}
+
+<GeneralContainer>
+
+  <h2>This is artist page</h2>
+
+  {{#each @model as |artist|}}
+
+    <p> {{artist.id}} </p>
+
+  {{/each}}
+
+</GeneralContainer>
+
+{{outlet}}
