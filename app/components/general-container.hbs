@@ -1,9 +1,9 @@
 <div id='container'>
   <aside class='sidebar'>
-    <div class='logo'>
+    <LinkTo @route='artists' class='logo'>
       <img src='/img/deezer.svg' alt='Logo' class='logo__img' />
       <h1 class='logo__name'>deezer</h1>
-    </div>
+    </LinkTo>
 
     <div class='sidebar__links'>
       <h4 class='sidebar__link'>
@@ -46,16 +46,18 @@
   <main class='main'>
     <div class='nav'>
 
-      <form class='search'>
+      <form class='search' onsubmit={{action 'search'}}>
         <svg class='search__icon'>
           <use xlink:href='/img/sprite.svg#search-svg'></use>
         </svg>
-        <input
+        <Input
+          @value={{this.artistName}}
           type='search'
           name='search'
           class='search__input'
-          placeholder='Search...'
+          placeholder='Search by artist name ...'
         />
+
       </form>
 
       <svg class='nav__notification'>
