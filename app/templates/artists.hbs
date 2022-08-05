@@ -4,9 +4,8 @@
 
   <div class='artists'>
 
-    {{#each @model as |artist|}}
-
-      <div class='artist'>
+    {{#each @model.data as |artist|}}
+      <LinkTo @route='detail' @model={{artist.id}} class='artist'>
         <img src={{artist.picture}} alt='Artist Image' class='artist__image' />
         <h3 class='artist__name'>{{artist.name}}</h3>
         <p class='artist__footer'>
@@ -14,8 +13,7 @@
           &nbsp; &#x2022; &nbsp;
           <span> {{artist.nb_fan}} Fans</span>
         </p>
-      </div>
-
+      </LinkTo>
     {{/each}}
 
   </div>

@@ -1,0 +1,48 @@
+{{page-title 'Artist '}}
+
+<GeneralContainer>
+
+  <div class='detail'>
+
+    <div class='detail__header'>
+      <img src='/img/cover.jpg' alt='Cover image' class='detail__cover' />
+
+      <div class='detail__info'>
+        <h2 class='detail__name'>Burna Boy</h2>
+        <p class='detail__fans'>3435 Fans</p>
+      </div>
+
+      <div class='tracks'>
+        <h3>Top tracks</h3>
+
+        {{#each @model.top as |track|}}
+          <p class='track'> {{track.title_short}} {{track.duration}} </p>
+
+        {{/each}}
+
+      </div>
+
+    </div>
+
+    <h3 class='detail-album-title'>Albums</h3>
+
+    <div class='albums'>
+
+      {{#each @model.albums as |album|}}
+        <div class='album'>
+          <img
+            src={{album.cover_medium}}
+            alt='Album Image'
+            class='album__image'
+          />
+          <h3 class='album__title'>{{album.title}} </h3>
+          <p class='album__year'>{{album.release_date}}</p>
+        </div>
+
+      {{/each}}
+
+    </div>
+
+  </div>
+</GeneralContainer>
+{{outlet}}
