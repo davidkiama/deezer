@@ -6,9 +6,10 @@ export default class DetailRoute extends Route {
 
     try {
       let response = await fetch(`http://localhost:5000/artist/${id}`);
-      const { albums, top } = await response.json();
+      const { albums, top, info } = await response.json();
+      console.log(info);
 
-      return { ...albums, ...top };
+      return { ...albums, ...top, info };
     } catch (error) {}
   }
 }
