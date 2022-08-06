@@ -1,14 +1,15 @@
 .sidebar {
   padding: 2rem;
-  width: 30rem;
+  width: 28rem;
   background: $color-navy;
+
+  position: relative;
 
   &__links {
     margin-top: 3rem;
   }
 
   &__link {
-    cursor: pointer;
     font-size: 2.5rem;
     margin: 1rem;
     color: $color-white;
@@ -16,7 +17,6 @@
     align-items: center;
     padding: 0 2rem;
     margin-bottom: 2rem;
-    transition: all 0.2s;
 
     &--icon {
       fill: currentColor;
@@ -28,10 +28,6 @@
       fill: currentColor;
       font-size: 2rem;
       margin-left: 1rem;
-    }
-
-    &:hover {
-      color: $color-pink;
     }
   }
 
@@ -63,5 +59,77 @@
     margin-left: 1rem;
     font-weight: 900;
     font-size: 3.2rem;
+  }
+}
+
+// This will be vibisible on smaller screens
+
+.sidebar__content {
+  transition: all 0.3s;
+
+  & .logo {
+    display: none;
+  }
+}
+
+.icon-menu {
+  display: none;
+  position: absolute;
+  top: 1.2rem;
+  left: 4rem;
+  & svg {
+    fill: $color-white;
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  .icon-menu {
+    display: block;
+  }
+
+  .cancel {
+    top: 4.5rem;
+    left: 80%;
+  }
+
+  .sidebar {
+    padding: 0.5rem;
+    width: 8rem;
+    padding-right: 2rem;
+    position: relative;
+
+    &__content {
+      & .logo {
+        display: block;
+      }
+
+      background-color: rgba($color-navy, 0.98);
+      z-index: 40;
+      position: absolute;
+      height: 100%;
+      padding-top: 4rem;
+      margin-top: -4rem;
+      top: 2rem;
+      transform: translateX(-20rem);
+    }
+
+    &-active {
+      top: 1rem;
+      transform: translateX(0);
+    }
+  }
+
+  .logo {
+    &__img {
+      height: 3rem;
+      text-decoration: none;
+      color: $color-white;
+    }
+
+    &__name {
+      display: none;
+    }
   }
 }

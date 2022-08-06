@@ -2,7 +2,11 @@
 
 <GeneralContainer>
 
-  <p>You searched for {{this.artistName}} </p>
+  <div class='search'>
+    <h3 class='search__header'>Seach results for : </h3>
+    &nbsp; &nbsp;
+    <span class='search__query'> {{@model.artistName}} </span>
+  </div>
 
   <div class='artists'>
 

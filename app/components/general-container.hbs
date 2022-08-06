@@ -1,45 +1,67 @@
 <div id='container'>
   <aside class='sidebar'>
+
     <LinkTo @route='index' class='logo'>
       <img src='/img/deezer.svg' alt='Logo' class='logo__img' />
       <h1 class='logo__name'>deezer</h1>
     </LinkTo>
 
-    <div class='sidebar__links'>
-      <h4 class='sidebar__link'>
-        <svg class='sidebar__link--icon'>
-          <use xlink:href='/img/sprite.svg#music-svg'></use>
-        </svg>
-        <span class='sidebar__link--text'> Music </span>
-      </h4>
-
-      <h4 class='sidebar__link'>
-        <svg class='sidebar__link--icon'>
-          <use xlink:href='/img/sprite.svg#microphone-svg'></use>
-        </svg>
-        <span class='sidebar__link--text'> Shows </span>
-      </h4>
-      <h4 class='sidebar__link'>
-        <svg class='sidebar__link--icon' style='height: 2.2rem'>
-          <use xlink:href='/img/sprite.svg#explore-svg'></use>
-        </svg>
-        <span class='sidebar__link--text'> Explore </span>
-      </h4>
-      <h4 class='sidebar__link'>
-        <svg class='sidebar__link--icon' style='height: 2.2rem'>
-          <use xlink:href='/img/sprite.svg#favourite-svg'></use>
-        </svg>
-        <span class='sidebar__link--text'> Favourite </span>
-      </h4>
+    <div class='icon-menu' onclick={{action 'toggleSidebar'}}>
+      <svg>
+        <use xlink:href='/img/sprite.svg#menu-svg'></use>
+      </svg>
     </div>
 
-    <div class='sidebar__footer'>
-      <span>Popular tracks</span>
-      <span>Downloads</span>
-      <span>Playlists</span>
-      <span>Albums</span>
-      <span>Artists</span>
-      <span>Podcasts</span>
+    <div class='sidebar__content {{if this.sidebarDisplay "sidebar-active"}} '>
+
+      <div class='logo'>
+        <img src='/img/deezer.svg' alt='Logo' class='logo__img' />
+
+      </div>
+
+      <div class='icon-menu cancel' onclick={{action 'toggleSidebar'}}>
+        <svg>
+          <use xlink:href='/img/sprite.svg#cancel-svg'></use>
+        </svg>
+      </div>
+
+      <div class='sidebar__links'>
+        <h4 class='sidebar__link'>
+          <svg class='sidebar__link--icon'>
+            <use xlink:href='/img/sprite.svg#music-svg'></use>
+          </svg>
+          <span class='sidebar__link--text'> Music </span>
+        </h4>
+
+        <h4 class='sidebar__link'>
+          <svg class='sidebar__link--icon'>
+            <use xlink:href='/img/sprite.svg#microphone-svg'></use>
+          </svg>
+          <span class='sidebar__link--text'> Shows </span>
+        </h4>
+        <h4 class='sidebar__link'>
+          <svg class='sidebar__link--icon' style='height: 2.2rem'>
+            <use xlink:href='/img/sprite.svg#explore-svg'></use>
+          </svg>
+          <span class='sidebar__link--text'> Explore </span>
+        </h4>
+        <h4 class='sidebar__link'>
+          <svg class='sidebar__link--icon' style='height: 2.2rem'>
+            <use xlink:href='/img/sprite.svg#favourite-svg'></use>
+          </svg>
+          <span class='sidebar__link--text'> Favourite </span>
+        </h4>
+      </div>
+
+      <div class='sidebar__footer'>
+        <span>Popular tracks</span>
+        <span>Downloads</span>
+        <span>Playlists</span>
+        <span>Albums</span>
+        <span>Artists</span>
+        <span>Podcasts</span>
+      </div>
+
     </div>
   </aside>
 

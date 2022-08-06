@@ -15,9 +15,8 @@ export default class SearchRoute extends Route {
       );
 
       const { data } = await response.json();
-      console.log(data);
 
-      return data;
+      return { artistName: artistName, ...data };
     } catch (error) {
       console.log(error);
     }

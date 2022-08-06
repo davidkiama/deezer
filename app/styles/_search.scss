@@ -1,0 +1,16 @@
+.search {
+  margin: 1rem;
+  margin-left: 4rem;
+  color: $color-white;
+  display: flex;
+  align-items: center;
+
+  &__header {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  &__query {
+    font-size: 3rem;
+  }
+}
