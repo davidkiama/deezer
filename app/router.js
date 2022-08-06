@@ -11,4 +11,5 @@ Router.map(function () {
   this.route('artists');
 
   this.route('detail', { path: 'artist/:id' });
+  this.route('search', { path: '/search/:artistName' });
 });

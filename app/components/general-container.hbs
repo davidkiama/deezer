@@ -1,6 +1,6 @@
 <div id='container'>
   <aside class='sidebar'>
-    <LinkTo @route='artists' class='logo'>
+    <LinkTo @route='index' class='logo'>
       <img src='/img/deezer.svg' alt='Logo' class='logo__img' />
       <h1 class='logo__name'>deezer</h1>
     </LinkTo>
@@ -70,6 +70,14 @@
 
     <div class='content'>
       {{yield}}
+
+      {{#if this.loading}}
+        <p>Loading...</p>
+
+      {{else}}
+        {{yield}}
+      {{/if}}
+
     </div>
   </main>
 </div>

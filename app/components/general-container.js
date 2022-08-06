@@ -3,24 +3,16 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
+import { inject as service } from '@ember/service';
+
 export default class GeneralContainerComponent extends Component {
   @tracked artistName = '';
+  @service router;
 
   @action
-  async search(e) {
-    try {
-      e.preventDefault();
+  search(e) {
+    e.preventDefault();
 
-      const response = await fetch('http://localhost:5000/search', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ artistName: this.artistName }),
-      });
-
-      const { data } = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
+    this.router.transitionTo('search', this.artistName);
   }
 }
