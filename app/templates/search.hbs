@@ -12,9 +12,12 @@
 
     {{#each @model.data as |artist|}}
       <LinkTo @route='detail' @model={{artist.id}} class='artist'>
-       
+
         <Image
-          @src={{artist.picture}}
+          @big={{artist.picture_big}}
+          @medium={{artist.picture_medium}}
+          @small={{artist.picture_small}}
+          @cover={{artist.picture}}
           @class='artist__image'
           @alt='Artist Image'
         />

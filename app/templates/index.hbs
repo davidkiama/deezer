@@ -7,10 +7,14 @@
       <LinkTo @route='detail' @model={{artist.id}} class='artist'>
 
         <Image
-          @src={{artist.picture}}
+          @big={{artist.picture_big}}
+          @medium={{artist.picture_medium}}
+          @small={{artist.picture_small}}
+          @cover={{artist.picture}}
           @class='artist__image'
           @alt='Artist Image'
         />
+
         <h3 class='artist__name'>{{artist.name}}</h3>
         <p class='artist__footer'>
           <span>{{artist.nb_album}} Albums</span>

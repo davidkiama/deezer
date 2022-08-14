@@ -1,1 +1,13 @@
-<img src={{@src}} alt={{@alt}} class={{@class}} />
+<picture
+  big={{@big}}
+  medium={{@medium}}
+  small={{@small}}
+  cover={{@cover}}
+  class={{@class}}
+  alt={{@alt}}
+>
+  <source media='(min-width:1140px)' srcset={{@big}} />
+  <source media='(min-width:650px)' srcset={{@medium}} />
+  <source media='(min-width:465px)' srcset={{@small}} />
+  <img src={{@cover}} class={{@class}} alt={{@alt}} />
+</picture>

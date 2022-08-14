@@ -38,7 +38,10 @@
       {{#each @model.albums as |album|}}
         <div class='album'>
           <Image
-            @src={{album.cover_medium}}
+            @big={{album.cover_big}}
+            @medium={{album.cover_medium}}
+            @small={{album.cover_small}}
+            @cover={{album.cover}}
             @class='album__image'
             @alt='Album Image'
           />
