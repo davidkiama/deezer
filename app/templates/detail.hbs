@@ -19,7 +19,10 @@
           <p class='track'>
             <span class='track__index'>{{track.index}}</span>
             <span class='track__title'>{{track.title_short}}</span>
-            <span class='track__duration'>{{track.duration}}</span>
+            <span class='track__duration'>
+              {{duration track.duration}}
+
+            </span>
           </p>
 
         {{/each}}
