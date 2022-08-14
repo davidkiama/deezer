@@ -5,7 +5,12 @@
 
     {{#each @model.data as |artist|}}
       <LinkTo @route='detail' @model={{artist.id}} class='artist'>
-        <img src={{artist.picture}} alt='Artist Image' class='artist__image' />
+
+        <Image
+          @src={{artist.picture}}
+          @class='artist__image'
+          @alt='Artist Image'
+        />
         <h3 class='artist__name'>{{artist.name}}</h3>
         <p class='artist__footer'>
           <span>{{artist.nb_album}} Albums</span>
