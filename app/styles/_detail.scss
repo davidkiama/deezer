@@ -33,7 +33,7 @@
 }
 
 .tracks {
-  width: 22rem;
+  width: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -50,6 +50,17 @@
   font-size: 1.8rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid $color-grey;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__title {
+    display: inline-block;
+    width: 16rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 
 .detail-album-title {
@@ -69,7 +80,7 @@
   cursor: pointer;
 
   &__image {
-    width: 15rem;
+    width: 18rem;
     height: 20rem;
     object-fit: cover;
 
@@ -78,6 +89,18 @@
     &:hover {
       filter: brightness(0.6);
     }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    width: 18rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__year {
+    font-size: 1.3rem;
   }
 }
 

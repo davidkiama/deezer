@@ -15,8 +15,12 @@
       <div class='tracks'>
         <h3>Top tracks</h3>
 
-        {{#each @model.top as |track|}}
-          <p class='track'> {{track.title_short}} {{track.duration}} </p>
+        {{#each @model.mappedTops as |track|}}
+          <p class='track'>
+            <span class='track__index'>{{track.index}}</span>
+            <span class='track__title'>{{track.title_short}}</span>
+            <span class='track__duration'>{{track.duration}}</span>
+          </p>
 
         {{/each}}
 
