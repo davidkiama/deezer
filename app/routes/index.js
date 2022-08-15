@@ -5,9 +5,19 @@ export default class IndexRoute extends Route {
   @service store;
 
   async model() {
-    const data = await this.store.findAll('artist');
+    const dataClass = await this.store.findAll('artist');
 
-    console.log(data);
+    const data = dataClass.map((item) => {
+      return {
+        id: item.id,
+        name: item.name,
+        fans: item.nb_fan,
+        big: item.picture_big,
+        medium: item.picture_medium,
+        small: item.picture_small,
+        picture: item.picture,
+      };
+    });
 
     return data;
   }
