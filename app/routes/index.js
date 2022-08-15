@@ -1,17 +1,24 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default class IndexRoute extends Route {
+  @service store;
+
   async model() {
-    try {
-      let response = await fetch(
-        'https://limitless-sierra-50857.herokuapp.com/artists'
-      );
+    const dataClass = await this.store.findAll('artist');
 
-      let { data } = await response.json();
+    const data = dataClass.map((item) => {
+      return {
+        id: item.id,
+        name: item.name,
+        fans: item.nb_fan,
+        big: item.picture_big,
+        medium: item.picture_medium,
+        small: item.picture_small,
+        picture: item.picture,
+      };
+    });
 
-      return { data };
-    } catch (error) {
-      return error;
-    }
+    return data;
   }
 }

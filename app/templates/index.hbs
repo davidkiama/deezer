@@ -3,7 +3,7 @@
 
   <div class='artists'>
 
-    {{#each @model.data as |artist|}}
+    {{#each @model as |artist|}}
       <LinkTo @route='detail' @model={{artist.id}} class='artist'>
 
         <Image
