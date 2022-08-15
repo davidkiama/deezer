@@ -1,12 +1,13 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'deezer/tests/helpers';
 
-module('Unit | Adapter | application', function (hooks) {
+module('Unit | Model | detail', function (hooks) {
   setupTest(hooks);
 
   // Replace this with your real tests.
   test('it exists', function (assert) {
-    let adapter = this.owner.lookup('adapter:application');
-    assert.ok(adapter);
+    let store = this.owner.lookup('service:store');
+    let model = store.createRecord('detail', {});
+    assert.ok(model);
   });
 });

@@ -1,26 +1,21 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default class DetailRoute extends Route {
+  @service store;
+
   async model(params) {
-    const { id } = params;
+    const dataClass = await this.store.findRecord('detail', params.id);
 
-    try {
-      let response = await fetch(
-        `https://limitless-sierra-50857.herokuapp.com/artist/${id}`
-      );
+    const { albums, top, info } = await dataClass;
 
-      const { albums, top, info } = await response.json();
+    //Add index to the top tracks
+    const [tops] = Object.values(top);
+    const mappedTops = tops.map((track, index) => {
+      track.index = index + 1;
+      return track;
+    });
 
-      //Add index to the top tracks
-
-      const [tops] = Object.values(top);
-
-      const mappedTops = tops.map((track, index) => {
-        track.index = index + 1;
-        return track;
-      });
-
-      return { ...albums, mappedTops, info };
-    } catch (error) {}
+    return { ...albums, mappedTops, info };
   }
 }
