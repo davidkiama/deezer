@@ -12,9 +12,9 @@ export default class IndexRoute extends Route {
         id: item.id,
         name: item.name,
         fans: item.nb_fan,
-        big: item.picture_big,
-        medium: item.picture_medium,
-        small: item.picture_small,
+        picture_big: item.picture_big,
+        picture_medium: item.picture_medium,
+        picture_small: item.picture_small,
         picture: item.picture,
       };
     });

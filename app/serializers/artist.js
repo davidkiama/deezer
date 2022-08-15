@@ -6,8 +6,6 @@ export default DS.RESTSerializer.extend({
 
     payload = { artists: data };
 
-    console.log(payload);
-
     return this._super(store, primaryModelClass, payload, id, requestType);
   },
 });
