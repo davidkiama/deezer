@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import ArtistModel from '../models/artist';
 
 export default class SearchRoute extends Route {
   @service store;
@@ -18,8 +19,20 @@ export default class SearchRoute extends Route {
 
     const { data: payload } = await response.json();
 
+    // Converting the payload to JSONAPI format
+    // (for some reason store.pushPayload is not calling the normalizeArrayResponse
+    // method on the serializer)
+    const serializer = this.store.serializerFor('artist');
+    const payloadJsonApi = serializer.normalizeArrayResponse(
+      this.store,
+      ArtistModel,
+      payload,
+      null,
+      'query'
+    );
+
     // Populating the Ember Data Store (creates records for all payload items)
-    this.store.pushPayload(payload);
+    this.store.push(payloadJsonApi);
 
     // pushPayload does not return records, so we need to retrieve them from the store.
     const records = payload.data.map((item) =>

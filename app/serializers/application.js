@@ -17,6 +17,8 @@ export default class ApplicationSerializer extends RESTSerializer {
       return recordsMap;
     }, {});
 
+    debugger
+
     return super.normalizeArrayResponse(
       store,
       primaryModelClass,
