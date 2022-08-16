@@ -5,9 +5,10 @@ export default class DetailRoute extends Route {
   @service store;
 
   async model(params) {
-    const dataClass = await this.store.findRecord('detail', params.id);
+    const detail = await this.store.findRecord('detail', params.id);
 
-    const { albums, top, info } = await dataClass;
+    // ToDo: this should be done in the model (via @cached getter), not route
+    const { albums, top, info } = detail;
 
     //Add index to the top tracks
     const [tops] = Object.values(top);
