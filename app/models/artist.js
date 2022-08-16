@@ -7,4 +7,5 @@ export default class ArtistModel extends Model {
   @attr('string') picture;
   @attr('string') name;
   @attr('number') nb_fan;
+  @attr('number') nb_album;
 }

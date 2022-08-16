@@ -12,6 +12,7 @@ export default class IndexRoute extends Route {
         id: item.id,
         name: item.name,
         fans: item.nb_fan,
+        albums: item.nb_album,
         picture_big: item.picture_big,
         picture_medium: item.picture_medium,
         picture_small: item.picture_small,
