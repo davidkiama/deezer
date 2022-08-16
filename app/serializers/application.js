@@ -13,7 +13,7 @@ export default class ApplicationSerializer extends RESTSerializer {
     // into a map like this: {artists: [], albums: []}
     const payloadProcessed = payload.data.reduce((recordsMap, item) => {
       const modelName = pluralize(item.type);
-      recordsMap[modelName] = [...(recordsMap[item.type] || []), item];
+      recordsMap[modelName] = [...(recordsMap[modelName] || []), item];
       return recordsMap;
     }, {});
 

@@ -18,15 +18,8 @@ export default class SearchRoute extends Route {
 
     const { data: payload } = await response.json();
 
-    // This converts an array of records [{type: 'artist'}, {type: album}]
-    // into a map like this: {artists: [], albums: []}
-    const payloadProcessed = payload.data.reduce((recordsMap, item) => {
-      recordsMap[item.type] = [...(recordsMap[item.type] || []), item];
-      return recordsMap;
-    }, {});
-
     // Populating the Ember Data Store (creates records for all payload items)
-    this.store.pushPayload(payloadProcessed);
+    this.store.pushPayload(payload);
 
     // pushPayload does not return records, so we need to retrieve them from the store.
     const records = payload.data.map((item) =>
