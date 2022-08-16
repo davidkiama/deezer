@@ -2,28 +2,30 @@
 
 <div class='search'>
   <h3 class='search__header'>Seach results for : </h3>
-  &nbsp; &nbsp;
-  <span class='search__query'> {{@model.artistName}} </span>
+  &nbsp;&nbsp;
+  <span class='search__query'> {{this.model.artistName}} </span>
 </div>
 
 <div class='artists'>
 
-  {{#each @model.data as |artist|}}
+  {{#each this.model.records as |artist|}}
     <LinkTo @route='detail' @model={{artist.id}} class='artist'>
 
       <Image
-        @big={{artist.picture_big}}
-        @medium={{artist.picture_medium}}
-        @small={{artist.picture_small}}
+        @big={{artist.pictureBig}}
+        @medium={{artist.pictureMedium}}
+        @small={{artist.pictureSmall}}
         @cover={{artist.picture}}
         @class='artist__image'
         @alt='Artist Image'
       />
+
       <h3 class='artist__name'>{{artist.name}}</h3>
+
       <p class='artist__footer'>
-        <span>{{artist.nb_album}} Albums</span>
-        &nbsp; &#x2022; &nbsp;
-        <span> {{artist.nb_fan}} Fans</span>
+        <span>{{artist.nbAlbum}} Albums</span>
+        &nbsp;&#x2022;&nbsp;
+        <span> {{artist.nbFan}} Fans</span>
       </p>
     </LinkTo>
   {{/each}}

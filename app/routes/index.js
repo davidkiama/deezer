@@ -11,11 +11,11 @@ export default class IndexRoute extends Route {
       return {
         id: item.id,
         name: item.name,
-        fans: item.nb_fan,
-        albums: item.nb_album,
-        picture_big: item.picture_big,
-        picture_medium: item.picture_medium,
-        picture_small: item.picture_small,
+        fans: item.nbFan,
+        albums: item.nbAlbum,
+        pictureBig: item.pictureBig,
+        pictureMedium: item.pictureMedium,
+        pictureSmall: item.pictureSmall,
         picture: item.picture,
       };
     });
