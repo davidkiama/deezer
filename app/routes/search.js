@@ -3,7 +3,7 @@ import Route from '@ember/routing/route';
 export default class SearchRoute extends Route {
   async model(params) {
     const { artistName } = params;
-    console.log(artistName);
+    // let
 
     try {
       const response = await fetch(
@@ -16,6 +16,7 @@ export default class SearchRoute extends Route {
       );
 
       const { data } = await response.json();
+      console.log(data);
 
       return { artistName: artistName, ...data };
     } catch (error) {
