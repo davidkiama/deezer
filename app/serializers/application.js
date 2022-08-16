@@ -1,5 +1,7 @@
 import RESTSerializer from '@ember-data/serializer/rest';
 import { underscore } from '@ember/string';
+import { pluralize } from 'ember-inflector';
+
 
 export default class ApplicationSerializer extends RESTSerializer {
   keyForAttribute(attrFromModel) {
@@ -10,7 +12,8 @@ export default class ApplicationSerializer extends RESTSerializer {
     // This converts an array of records [{type: 'artist'}, {type: album}]
     // into a map like this: {artists: [], albums: []}
     const payloadProcessed = payload.data.reduce((recordsMap, item) => {
-      recordsMap[item.type] = [...(recordsMap[item.type] || []), item];
+      const modelName = pluralize(item.type);
+      recordsMap[modelName] = [...(recordsMap[item.type] || []), item];
       return recordsMap;
     }, {});
 
@@ -26,5 +29,4 @@ export default class ApplicationSerializer extends RESTSerializer {
   normalizeSingleResponse(store, primaryModelClass, payload) {
     return this.normalize(primaryModelClass, payload);
   }
-
 }
